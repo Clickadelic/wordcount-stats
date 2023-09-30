@@ -3,11 +3,10 @@
 /*
 Plugin Name: The Gutenberg Roadtrip
 Plugin URI:  https://github.com/Clickadelic/gutenberg-roadtrip
-Description: A plugin to experiment with Gutenberg
+Description: A plugin to experiment with Gutenberg.
 Version:     0.0.2
-Author:      Clickadelic
-Author URI:  https://www.tobias-hopp.de/wordpress/plugins/the-white-label
-License:     GPL2
+Author:      Tobias Hopp
+Author URI:  https://www.tobias-hopp.de/wordpress/gutenberg-roadtrip
 License URI: GPL2
 Text Domain: gutenberg-roadtrip
 Domain Path: /languages
@@ -20,8 +19,23 @@ if(!defined('ABSPATH')) {
 class WordCountAndTimePlugin {
 
 	public function __construct(){
+		add_action('init', [$this, 'initPluginTextdomain']);
 		add_action('admin_menu', [$this, 'adminPage']);
 		add_action('admin_init', [$this, 'settings']);
+	}
+
+	public function initPluginTextdomain(){
+		load_plugin_textdomain('gutenberg-roadtrip', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+	}
+
+	public function adminPage(){
+		add_options_page(
+			__('Word Count Settings', 'gutenberg-roadtrip'),
+			__('Word Count', 'gutenberg-roadtrip'),
+			'manage_options',
+			'word-count-settings-page',
+			[$this, 'formOutputHTML']
+		);
 	}
 
 	public function settings(){
@@ -73,17 +87,7 @@ class WordCountAndTimePlugin {
 	<?php
 	}
 
-	public function adminPage(){
-		add_options_page(
-			__('Word Count Settings', 'gutenberg-roadtrip'),
-			'Word Count',
-			'manage_options',
-			'word-count-settings-page',
-			[$this, 'ourHTML']
-		);
-	}
-
-	public function ourHTML(){ ?>
+	public function formOutputHTML(){ ?>
 		<div class="wrap">
 			<h1><?php _e('Word Count Settings', 'gutenberg-roadtrip'); ?></h1>
 			<form action="options.php" method="POST">
