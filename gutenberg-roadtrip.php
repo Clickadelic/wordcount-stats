@@ -43,7 +43,7 @@ class WordCountAndTimePlugin {
 		add_settings_section('wcp_first_section', null, null, 'word-count-settings-page');
 		
 		add_settings_field('wcp_location', __('Display Location', 'gutenberg-roadtrip'), [$this, 'locationHTML'], 'word-count-settings-page', 'wcp_first_section');
-		register_setting('wordcountplugin', 'wcp_location', ['sanitize_callback' => 'sanitize_text_field', 'default' => '0']);
+		register_setting('wordcountplugin', 'wcp_location', ['sanitize_callback' => [$this, 'sanitizeLocation'], 'default' => '0']);
 
 		add_settings_field('wcp_headline', __('Headline Text', 'gutenberg-roadtrip'), [$this, 'headlineHTML'], 'word-count-settings-page', 'wcp_first_section');
 		register_setting('wordcountplugin', 'wcp_headline', ['sanitize_callback' => 'sanitize_text_field', 'default' => 'Post Statistics']);
@@ -85,6 +85,14 @@ class WordCountAndTimePlugin {
 	public function readingtimeHTML(){ ?>
 		<input type="checkbox" name="wcp_readingtime" value="1" <?php checked(esc_attr(get_option('wcp_readingtime')), '1'); ?> />
 	<?php
+	}
+
+	public function sanitizeLocation($input){
+		if($input != '0' AND $input !='1'){
+			add_settings_error('wcp_location', 'wcp_location_error', __('Display location must be either beginning or end', 'gutenberg-roadtrip'));
+			return get_option('wcp_location');
+		}
+		return $input;
 	}
 
 	public function formOutputHTML(){ ?>
