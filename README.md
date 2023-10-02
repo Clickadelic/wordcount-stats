@@ -1,2 +1,2 @@
-# Gutenberg Roadtrip
-A roadtrip to explore the Gutenberg-Project
+# Wordcount
+A plugin to show some neat statistics like wordcount, charactercount and estimated reading time.
