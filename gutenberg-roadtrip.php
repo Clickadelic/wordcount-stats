@@ -84,7 +84,7 @@ class WordCountAndTimePlugin {
 		}
 
 		if(get_option('wcp_wordcount', '1')) {
-			$html .= __('This post has '). $wordcount .__(' words', 'gutenberg-roadtrip');
+			$html .= __('This post has ', 'gutenberg-roadtrip'). $wordcount .__(' words', 'gutenberg-roadtrip');
 		}
 		
 		if(get_option('wcp_charactercount', '1')) {
@@ -133,7 +133,7 @@ class WordCountAndTimePlugin {
 
 	public function sanitizeLocation($input){
 		if($input != '0' AND $input !='1'){
-			add_settings_error('wcp_location', 'wcp_location_error', __('Display location must be either beginning or end', 'gutenberg-roadtrip'));
+			add_settings_error('wcp_location', 'wcp_location_error', __('Display location must be either beginning or end with values of either 0 or 1', 'gutenberg-roadtrip'));
 			return get_option('wcp_location');
 		}
 		return $input;
