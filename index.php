@@ -1,14 +1,14 @@
 <?php
 
 /*
-Plugin Name: The Gutenberg Roadtrip
-Plugin URI:  https://github.com/Clickadelic/gutenberg-roadtrip
-Description: A plugin to experiment with Gutenberg.
+Plugin Name: Wordcount
+Plugin URI:  https://github.com/Clickadelic/wordcount
+Description: A plugin output some neat statistics in posts (word count, character cound and estimated reading time).
 Version:     0.0.2
 Author:      Tobias Hopp
-Author URI:  https://www.tobias-hopp.de/wordpress/gutenberg-roadtrip
+Author URI:  https://www.tobias-hopp.de/wordpress/wordcount
 License URI: GPL2
-Text Domain: gutenberg-roadtrip
+Text Domain: wordcount
 Domain Path: /languages
 */
 
@@ -26,7 +26,7 @@ class WordCountAndTimePlugin {
 	}
 
 	public function initPluginTextdomain(){
-		load_plugin_textdomain('gutenberg-roadtrip', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+		load_plugin_textdomain('wordcount', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
 	}
 
 	public function adminPage(){
@@ -75,7 +75,7 @@ class WordCountAndTimePlugin {
 	public function createHTML($content){
 
 		$html = '<div class="word-count-stats">';
-		$html .= '<h3>'.esc_attr(get_option('wcp_headline')).'</h3>';
+		$html .= '<h3>'.esc_html(get_option('wcp_headline')).'</h3>';
 		$html .= '<p>';
 
 		// get word count once because both wordcount and readtime will need it.
