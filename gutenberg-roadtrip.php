@@ -22,6 +22,7 @@ class WordCountAndTimePlugin {
 		add_action('init', [$this, 'initPluginTextdomain']);
 		add_action('admin_menu', [$this, 'adminPage']);
 		add_action('admin_init', [$this, 'settings']);
+		add_action('the_content', [$this, 'ifWrap']);
 	}
 
 	public function initPluginTextdomain(){
@@ -57,6 +58,49 @@ class WordCountAndTimePlugin {
 		add_settings_field('wcp_readingtime', __('Reading time', 'gutenberg-roadtrip'), [$this, 'readingtimeHTML'], 'word-count-settings-page', 'wcp_first_section');
 		register_setting('wordcountplugin', 'wcp_readingtime', ['sanitize_callback' => 'sanitize_text_field', 'default' => '1']);
 
+	}
+
+	public function ifWrap($content){
+		if (is_main_query() AND is_single() AND
+			(
+				get_option('wcp_wordcount', '1') OR
+				get_option('wcp_charactercount', '1') OR
+				get_option('wcp_readingtime', '1')
+			)) {
+			return $this->createHTML($content);
+		}
+		return $content;
+	}
+
+	public function createHTML($content){
+
+		$html = '<div class="word-count-stats">';
+		$html .= '<h3>'.esc_attr(get_option('wcp_headline')).'</h3>';
+		$html .= '<p>';
+
+		// get word count once because both wordcount and readtime will need it.
+		if(get_option('wcp_wordcount', '1') OR get_option('wcp_readtime', '1')) {
+			$wordcount = str_word_count(strip_tags($content));
+		}
+
+		if(get_option('wcp_wordcount', '1')) {
+			$html .= __('This post has '). $wordcount .__(' words', 'gutenberg-roadtrip');
+		}
+		
+		if(get_option('wcp_charactercount', '1')) {
+			$html .= ', ' . strlen(strip_tags($content)) . __(' characters ', 'gutenberg-roadtrip');
+		}
+
+		if(get_option('wcp_readingtime', '1')) {
+			$html .= __('and will take around ', 'gutenberg-roadtrip') . round($wordcount/225) . __(' minute(s) to read.', 'gutenberg-roadtrip');
+		}
+
+		$html .= '</p>';
+
+		if(get_option('wcp_location', '0') == '0'){
+			return $html . $content;
+		}
+		return $content . $html;
 	}
 
 	public function locationHTML(){ ?>

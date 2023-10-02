@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: The Gutenberg Roadtrip\n"
 "POT-Creation-Date: 2023-09-30 17:24+0200\n"
-"PO-Revision-Date: 2023-09-30 17:24+0200\n"
+"PO-Revision-Date: 2023-09-30 20:55+0200\n"
 "Last-Translator: Tobias Hopp <translations@tobias-hopp.de>\n"
 "Language-Team: Tobias Hopp <translations@tobias-hopp.de>\n"
 "Language: de_DE\n"
@@ -54,7 +54,7 @@ msgstr "Zusammenfassung"
 
 #. Plugin Name of the plugin/theme
 msgid "The Gutenberg Roadtrip"
-msgstr "Der Guteberg-Roadtrip"
+msgstr "Der Gutenberg-Roadtrip"
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/Clickadelic/gutenberg-roadtrip"
@@ -69,9 +69,6 @@ msgid "Tobias Hopp"
 msgstr "Tobias Hopp"
 
 #. Author URI of the plugin/theme
-#, fuzzy
-#| msgid ""
-#| "https://www.tobias-hopp.de/wordpress/gutenberg-roadtrip/the-white-label"
 msgid "https://www.tobias-hopp.de/wordpress/gutenberg-roadtrip"
 msgstr "https://www.tobias-hopp.de/wordpress/plugins/the-white-label"
 
