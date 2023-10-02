@@ -1,19 +1,19 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Gutenberg Roadtrip\n"
-"POT-Creation-Date: 2023-09-30 17:18+0200\n"
-"PO-Revision-Date: 2023-09-30 17:17+0200\n"
+"Project-Id-Version: Wordcount\n"
+"POT-Creation-Date: 2023-10-02 06:06+0200\n"
+"PO-Revision-Date: 2023-10-02 06:06+0200\n"
 "Last-Translator: Tobias Hopp <translations@tobias-hopp.de>\n"
 "Language-Team: Tobias Hopp <translations@tobias-hopp.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: gutenberg-roadtrip.php\n"
+"X-Poedit-WPHeader: index.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
@@ -21,50 +21,81 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: gutenberg-roadtrip.php:34 gutenberg-roadtrip.php:93
+#: index.php:34 index.php:144
 msgid "Word Count Settings"
 msgstr ""
 
-#: gutenberg-roadtrip.php:46
+#: index.php:35
+msgid "Word Count"
+msgstr ""
+
+#: index.php:46
 msgid "Display Location"
 msgstr ""
 
-#: gutenberg-roadtrip.php:49
+#: index.php:49
 msgid "Headline Text"
 msgstr ""
 
-#: gutenberg-roadtrip.php:52
+#: index.php:52
 msgid "Word count"
 msgstr ""
 
-#: gutenberg-roadtrip.php:55
+#: index.php:55
 msgid "Character count"
 msgstr ""
 
-#: gutenberg-roadtrip.php:58
+#: index.php:58
 msgid "Reading time"
 msgstr ""
 
-#: gutenberg-roadtrip.php:72
+#: index.php:87
+msgid "This post has "
+msgstr ""
+
+#: index.php:87
+msgid " words"
+msgstr ""
+
+#: index.php:91
+msgid " characters "
+msgstr ""
+
+#: index.php:95
+msgid "and will take around "
+msgstr ""
+
+#: index.php:95
+msgid " minute(s) to read."
+msgstr ""
+
+#: index.php:115
 msgid "Post summary"
 msgstr ""
 
+#: index.php:136
+msgid ""
+"Display location must be either beginning or end with values of either 0 or 1"
+msgstr ""
+
 #. Plugin Name of the plugin/theme
-msgid "The Gutenberg Roadtrip"
+msgid "Wordcount"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://github.com/Clickadelic/gutenberg-roadtrip"
+msgid "https://github.com/Clickadelic/wordcount"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "A plugin to experiment with Gutenberg"
+msgid ""
+"A plugin output some neat statistics in posts (word count, character cound "
+"and estimated reading time)."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Clickadelic"
+msgid "Tobias Hopp"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://www.tobias-hopp.de/wordpress/plugins/the-white-label"
+msgid "https://www.tobias-hopp.de/wordpress/wordcount"
 msgstr ""
