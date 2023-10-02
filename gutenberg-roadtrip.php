@@ -95,7 +95,7 @@ class WordCountAndTimePlugin {
 			$html .= __('and will take around ', 'gutenberg-roadtrip') . round($wordcount/225) . __(' minute(s) to read.', 'gutenberg-roadtrip');
 		}
 
-		$html .= '</p>';
+		$html .= '</p></div>';
 
 		if(get_option('wcp_location', '0') == '0'){
 			return $html . $content;
